@@ -113,6 +113,8 @@ const StartIcon = styled.div`
 const EndIcon = styled.div`
   position: absolute;
   right: 20px;
+  display: flex;
+  align-items: center;
 `
 
 const ErrorLabel = styled.p`

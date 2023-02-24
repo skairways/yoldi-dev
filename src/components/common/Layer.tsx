@@ -18,6 +18,7 @@ export const Layer: FC<PropsWithChildren & StyledSystemProps> = ({
 }
 
 const Wrapper = styled.main`
+  padding-top: 81px;
   ${flexbox}
   ${layout}
   ${position}

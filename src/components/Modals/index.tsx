@@ -9,7 +9,6 @@ interface Props extends PropsWithChildren {
 
 export const Modal: FC<Props> = ({ closeFn, children }) => {
   useEffect(() => {
-    document.body.scrollTo(0, 0)
     document.body.style.overflowY = "hidden"
 
     return () => {

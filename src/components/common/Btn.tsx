@@ -40,6 +40,7 @@ const BaseBtn = styled.button<Props>`
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  cursor: pointer;
 
   ${flexbox}
   ${layout}

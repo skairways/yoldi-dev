@@ -29,37 +29,39 @@ export const Nav: FC<Props> = () => {
 
   return (
     <Wrapper>
-      <SystemContainer>
-        <Inner>
-          <Link href={AppPages.RootPage}>
-            <LogoWrapper>
-              <Logo />
-              <StyledText type="reg">
-                Разрабатываем и запускаем сложные веб проекты
-              </StyledText>
-            </LogoWrapper>
-          </Link>
+      <Inner>
+        <Link href={AppPages.RootPage}>
+          <LogoWrapper>
+            <Logo />
+            <StyledText type="reg">
+              Разрабатываем и запускаем сложные веб проекты
+            </StyledText>
+          </LogoWrapper>
+        </Link>
 
-          {!user && (
-            <Link href={AppPages.Login}>
-              <SystemBtn btnType="secondary">Войти</SystemBtn>
-            </Link>
-          )}
-          {user?.email && (
-            <StyledLink href={`${AccountPages.Profile}`}>
-              <SystemText type="reg">{user?.name}</SystemText>
-              <Avatar name={user?.name} url={user?.image?.url} size="small" />
-            </StyledLink>
-          )}
-        </Inner>
-      </SystemContainer>
+        {!user && (
+          <Link href={AppPages.Login}>
+            <SystemBtn btnType="secondary">Войти</SystemBtn>
+          </Link>
+        )}
+        {user?.email && (
+          <StyledLink href={`${AccountPages.Profile}`}>
+            <SystemText type="reg">{user?.name}</SystemText>
+            <Avatar name={user?.name} url={user?.image?.url} size="small" />
+          </StyledLink>
+        )}
+      </Inner>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.nav`
+  width: 100%;
+  position: fixed;
+  top: 0;
   background-color: ${(props) => props.theme.colors.backgroundPrimary};
   border-bottom: 1px solid ${(props) => props.theme.colors.strokesSecondary};
+  z-index: 100;
 `
 
 const Inner = styled.div`
@@ -67,6 +69,8 @@ const Inner = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 15px 29.5px 15px 20px;
+  max-width: 1280px;
+  margin: auto;
 `
 
 const LogoWrapper = styled.div`
