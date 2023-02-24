@@ -32,15 +32,23 @@ export const AccountPage = () => {
   const [openModal, setOpenModal] = useState(false)
   const { slug } = router.query
 
-  const owner = slug === "profile"
+  const profileRoute = slug === "profile"
+  const getUser = !profileRoute && slug
 
-  const url = owner ? ApiRoutes.Profile : `${ApiRoutes.User}/${slug}`
-
-  const { data: response, isLoading }: SWRResponse = useSWR(
-    () => (slug ? url : null),
+  const { data: profileRes, isLoading }: SWRResponse = useSWR(
+    () => (slug ? ApiRoutes.Profile : null),
     AxiosAPI.get
   )
-  const user = response?.data
+
+  const { data: userRes }: SWRResponse = useSWR(
+    () => (getUser ? `${ApiRoutes.User}/${slug}` : null),
+    AxiosAPI.get
+  )
+  const profileSlug = profileRes?.data?.slug
+  const userSlug = userRes?.data?.slug
+
+  const owner = profileSlug === userSlug || profileRoute
+  const user = profileRoute ? profileRes?.data : userRes?.data
 
   const logOut = () => {
     cookies.remove(CookieKeys.ACCESS_TOKEN)
@@ -51,7 +59,7 @@ export const AccountPage = () => {
     setOpenModal(true)
     router.push({
       pathname: `${AppPages.Account}/[slug]`,
-      query: { slug: "profile", modal: "open" },
+      query: { slug: slug, modal: "open" },
     })
   }
 
@@ -59,7 +67,7 @@ export const AccountPage = () => {
     setOpenModal(false)
     router.replace({
       pathname: `${AppPages.Account}/[slug]`,
-      query: { slug: "profile" },
+      query: { slug: slug },
     })
   }
 
