@@ -1,4 +1,3 @@
-import { StyledSystemProps } from "@/styles/types"
 import styled from "@emotion/styled"
 import { FC, PropsWithChildren } from "react"
 import {
@@ -9,6 +8,8 @@ import {
   space,
   typography,
 } from "styled-system"
+
+import { StyledSystemProps } from "@/styles/types"
 
 interface TitleProps extends PropsWithChildren {
   type: keyof typeof types

@@ -2,6 +2,7 @@ import { FC, PropsWithChildren } from "react"
 import { variant } from "styled-system"
 import styled from "@emotion/styled"
 import { flexbox, layout, position, space, typography } from "styled-system"
+
 import { StyledSystemProps } from "@/styles/types"
 
 interface TextProps extends PropsWithChildren {

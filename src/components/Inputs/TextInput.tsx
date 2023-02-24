@@ -4,8 +4,6 @@ import { css } from "@emotion/react"
 
 import { ReactComponent as EyeIcon } from "@assets/icons/eye.svg"
 import { ReactComponent as CrossedEyeIcon } from "@assets/icons/crossed-eye.svg"
-import { StyledSystemProps } from "@/styles/types"
-import { border } from "styled-system"
 
 interface Props extends HTMLAttributes<HTMLInputElement> {
   startIcon?: React.ReactNode
@@ -15,7 +13,7 @@ interface Props extends HTMLAttributes<HTMLInputElement> {
   touched?: boolean
 }
 
-export const SystemTextInput: FC<Props & StyledSystemProps> = ({
+export const SystemTextInput: FC<Props> = ({
   startIcon,
   type,
   touched,
@@ -105,8 +103,6 @@ const StyledInput = styled.input<{
     css`
       border-color: ${props.theme.colors.error} !important;
     `}
-
-  ${border}
 `
 
 const StartIcon = styled.div`

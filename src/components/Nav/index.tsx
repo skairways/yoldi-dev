@@ -59,7 +59,7 @@ export const Nav: FC<Props> = () => {
 
 const Wrapper = styled.nav`
   background-color: ${(props) => props.theme.colors.backgroundPrimary};
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid ${(props) => props.theme.colors.strokesSecondary};
 `
 
 const Inner = styled.div`

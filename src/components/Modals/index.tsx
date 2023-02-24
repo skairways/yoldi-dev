@@ -1,6 +1,7 @@
-import { media } from "@/styles/media"
 import styled from "@emotion/styled"
 import { FC, PropsWithChildren, useEffect } from "react"
+
+import { media } from "@/styles/media"
 
 interface Props extends PropsWithChildren {
   closeFn: () => void

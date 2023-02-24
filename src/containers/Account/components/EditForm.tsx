@@ -1,6 +1,7 @@
 import { FC, useState } from "react"
 import { Field, Form, Formik } from "formik"
 import * as Yup from "yup"
+import styled from "@emotion/styled"
 
 import { validationSchema } from "@/utility/validationSchema"
 import AxiosAPI from "@/services/api"
@@ -9,8 +10,6 @@ import { AccountPages, AppPages } from "@/routes/constant"
 import { UserModel } from "@/types/user"
 import { TextArea } from "@/components/Inputs/TextArea"
 import { SystemBtn } from "@/components/common/Btn"
-import { SystemTextInput } from "@/components/Inputs/TextInput"
-import styled from "@emotion/styled"
 import { SystemText } from "@/components/common/Text"
 import { FormikInput } from "@/components/Inputs/FormikInput"
 

@@ -4,7 +4,6 @@ export enum AppPages {
   Register = "/register",
   Login = "/login",
   Account = "/account",
-  // [INSERT NEW PAGE PATH ABOVE] < Needed for generating containers seamlessly
 }
 
 export enum AccountPages {

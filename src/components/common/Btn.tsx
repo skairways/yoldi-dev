@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren } from "react"
 import styled from "@emotion/styled"
 import { flexbox, layout, position, space, typography } from "styled-system"
+
 import { StyledSystemProps } from "@/styles/types"
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
@@ -69,9 +70,9 @@ const SecondaryBtn = styled(BaseBtn)<Props>`
   padding: 7px 33px;
 
   &:hover {
-    border-color: #838383;
+    border-color: ${(props) => props.theme.colors.gray};
   }
   &:focus {
-    border-color: #838383;
+    border-color: ${(props) => props.theme.colors.gray};
   }
 `

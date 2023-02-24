@@ -1,8 +1,8 @@
 import { FC } from "react"
 import styled from "@emotion/styled"
+import Link from "next/link"
 
 import { SystemText } from "@components/common/Text"
-import Link from "next/link"
 
 interface Props {
   text?: string

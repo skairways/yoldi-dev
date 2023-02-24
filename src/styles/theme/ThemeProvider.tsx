@@ -1,5 +1,6 @@
 import React, { FC, PropsWithChildren } from "react"
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react"
+
 import { themes } from "./themes"
 
 export const selectedTheme = themes.light

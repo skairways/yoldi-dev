@@ -1,3 +1,4 @@
+import { AppPages } from "@/routes/constant"
 import CookieProvider from "js-cookie"
 
 export const cookies = CookieProvider
@@ -6,7 +7,7 @@ export const cookieConfig = () => {
   expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000)
 
   return {
-    path: "/",
+    path: AppPages.RootPage,
     domain: process.env.NODE_ENV,
     expires: expirationDate,
   }

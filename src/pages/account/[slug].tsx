@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { AccountPage } from "@/containers/Account"
 
-export default function Home() {
+export default function Account() {
   return (
     <>
       <Head>

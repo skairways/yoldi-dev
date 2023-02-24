@@ -1,5 +1,4 @@
 import { FC } from "react"
-import Image from "next/image"
 import styled from "@emotion/styled"
 import { variant } from "styled-system"
 
@@ -14,7 +13,7 @@ export const Avatar: FC<Props> = ({ name, url, ...props }) => {
     <Wrapper {...props}>
       {url ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={url} alt={name || "user-img"} />
+        <StyledImg src={url} alt={name || "user-img"} />
       ) : (
         name?.charAt(0)
       )}
@@ -46,13 +45,14 @@ const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.backgroundSecondary};
   text-transform: capitalize;
   overflow: hidden;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   ${variant({
     prop: "size",
     variants: sizes,
   })}
+`
+
+const StyledImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `
