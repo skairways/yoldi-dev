@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write ./src",
-    "check-format": "prettier --check ./src"
+    "check-format": "prettier --check ./src",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.5",
@@ -38,6 +39,11 @@
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@types/js-cookie": "^3.0.3",
     "@types/styled-system": "^5.1.16",
+    "husky": "^8.0.3",
+    "lint-staged": ">=10",
     "prettier": "^2.8.4"
+  },
+  "lint-staged": {
+    "*./src": "prettier --write"
   }
 }
