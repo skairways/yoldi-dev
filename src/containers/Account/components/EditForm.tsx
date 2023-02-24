@@ -111,7 +111,7 @@ export const EditForm: FC<Props> = ({ user, cancelFn }) => {
               type="submit"
               width="100%"
               loading={loading}
-              loadingLabel={"Сохраяем..."}
+              loadingLabel={"Загрузка..."}
             >
               Сохранить
             </SystemBtn>

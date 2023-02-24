@@ -85,18 +85,21 @@ const StyledInput = styled.input<{
   padding-left: ${(props) => props.padLeft && "55px"};
   padding-right: ${(props) => props.padRight && "55px"};
   line-height: 25.6px;
+  font-size: 16px;
 
   &:hover,
   &:focus {
-    border-color: #838383;
+    border-color: ${(props) => props.theme.colors.gray};
   }
   &:disabled {
     background: ${(props) => props.theme.colors.backgroundSecondary};
-    color: #838383;
+    color: ${(props) => props.theme.colors.gray};
     border-color: ${(props) => props.theme.colors.backgroundSecondary};
   }
   &::placeholder {
-    color: #838383;
+    color: ${(props) => props.theme.colors.gray};
+    font-size: 16px;
+    line-height: 25.6px;
   }
   ${(props) =>
     props.validationErr &&

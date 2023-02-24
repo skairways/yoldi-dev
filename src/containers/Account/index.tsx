@@ -21,6 +21,7 @@ import { GridLoading } from "@/components/common/GridLoading"
 import { NameNormalizer } from "@/styles/common"
 import { useEffect, useState } from "react"
 import { EditModal } from "./components/EditModal"
+import { SystemTitle } from "@/components/common/Title"
 
 export const AccountPage = () => {
   const router = useRouter()
@@ -76,7 +77,9 @@ export const AccountPage = () => {
             {isLoading && <GridLoading />}
             <UserInfo>
               <UserInfoInner>
-                <NameNormalizer type="reg">{user?.name}</NameNormalizer>
+                <NameNormalizer type="reg">
+                  <SystemTitle type="reg">{user?.name}</SystemTitle>
+                </NameNormalizer>
                 <Email type="reg" mt="10px">
                   {user?.email}
                 </Email>
@@ -110,7 +113,7 @@ export const AccountPage = () => {
 
 const StyledLayer = styled(Layer)`
   background-color: ${(props) => props.theme.colors.backgroundPrimary};
-  min-height: 100vh;
+  min-height: calc(100vh - 82px);
 `
 
 const Wrapper = styled.div`

@@ -41,6 +41,7 @@ const BaseBtn = styled.button<Props>`
   border-width: 1px;
   border-style: solid;
   cursor: pointer;
+  font-weight: 500;
 
   ${flexbox}
   ${layout}

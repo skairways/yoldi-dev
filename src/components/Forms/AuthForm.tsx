@@ -11,15 +11,29 @@ interface Props extends PropsWithChildren {
 export const AuthFormTemplate: FC<Props> = ({ title, children }) => {
   return (
     <Wrapper>
-      <SystemTitle type="reg" mb="10px">
-        {title}
-      </SystemTitle>
-      {children}
+      <Form>
+        <SystemTitle type="reg" mb="10px">
+          {title}
+        </SystemTitle>
+        {children}
+      </Form>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 75px;
+  ${media.sm`
+    min-height: auto;
+    padding-bottom: 0;
+  `}
+`
+
+const Form = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -28,7 +42,6 @@ const Wrapper = styled.div`
   max-width: 400px;
   border: 1px solid ${(props) => props.theme.colors.strokesSecondary};
   border-radius: 5px;
-  margin: 100px auto;
 
   ${media.sm`
     border: 0;

@@ -65,7 +65,7 @@ export const LoginForm = () => {
               type="submit"
               mt="10px"
               loading={loading}
-              loadingLabel="Заходим..."
+              loadingLabel="Загрузка..."
             >
               Войти
             </SystemBtn>
