@@ -1,28 +1,28 @@
-import { media } from "@/styles/media";
-import styled from "@emotion/styled";
-import { FC, PropsWithChildren, useEffect } from "react";
+import { media } from "@/styles/media"
+import styled from "@emotion/styled"
+import { FC, PropsWithChildren, useEffect } from "react"
 
 interface Props extends PropsWithChildren {
-  closeFn: () => void;
+  closeFn: () => void
 }
 
 export const Modal: FC<Props> = ({ closeFn, children }) => {
   useEffect(() => {
-    document.body.scrollTo(0, 0);
-    document.body.style.overflowY = "hidden";
+    document.body.scrollTo(0, 0)
+    document.body.style.overflowY = "hidden"
 
     return () => {
-      document.body.style.overflowY = "auto";
-    };
-  }, []);
+      document.body.style.overflowY = "auto"
+    }
+  }, [])
 
   return (
     <Wrapper>
       <Content>{children}</Content>
       <Overlay onClick={closeFn} />
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   position: fixed;
@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     justify-content: start;
     top: 81px;
   `}
-`;
+`
 
 const Overlay = styled.div`
   background: ${(props) => props.theme.colors.txt};
@@ -58,7 +58,7 @@ const Overlay = styled.div`
   ${media.sm`
     display: none;
   `}
-`;
+`
 
 const Content = styled.div`
   position: relative;
@@ -81,4 +81,4 @@ const Content = styled.div`
     height: calc(100% - 81px);
     justify-content: flex-start;
   `}
-`;
+`

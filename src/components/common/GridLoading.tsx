@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { FC } from "react";
+import styled from "@emotion/styled"
+import { FC } from "react"
 
 interface Props {
   fullPageHeight?: boolean
@@ -15,14 +15,15 @@ export const GridLoading: FC<Props> = (props) => {
         <div className="fourth"></div>
       </div>
     </Wrapper>
-  );
-};
-
+  )
+}
 
 const Wrapper = styled.div<{ fullPageHeight?: boolean }>`
   position: static;
   z-index: 99;
-  height: calc(100 ${({ fullPageHeight }) => (fullPageHeight ? "vh" : "%")} - 76px);
+  height: calc(
+    100 ${({ fullPageHeight }) => (fullPageHeight ? "vh" : "%")} - 76px
+  );
   width: 100%;
   display: flex;
   align-items: center;
@@ -48,7 +49,7 @@ const Wrapper = styled.div<{ fullPageHeight?: boolean }>`
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: ${props => props.theme.colors.txt};
+    background: ${(props) => props.theme.colors.txt};
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
   .first {
@@ -92,4 +93,3 @@ const Wrapper = styled.div<{ fullPageHeight?: boolean }>`
     }
   }
 `
-

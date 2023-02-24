@@ -1,11 +1,11 @@
-import { FC, PropsWithChildren } from "react";
-import styled from "@emotion/styled";
+import { FC, PropsWithChildren } from "react"
+import styled from "@emotion/styled"
 
-import { SystemTitle } from "@components/common/Title";
-import { media } from "@/styles/media";
+import { SystemTitle } from "@components/common/Title"
+import { media } from "@/styles/media"
 
 interface Props extends PropsWithChildren {
-  title?: string;
+  title?: string
 }
 
 export const AuthFormTemplate: FC<Props> = ({ title, children }) => {
@@ -16,8 +16,8 @@ export const AuthFormTemplate: FC<Props> = ({ title, children }) => {
       </SystemTitle>
       {children}
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -36,4 +36,4 @@ const Wrapper = styled.div`
     height: 100%;
     min-height: calc(100vh - 72px);
   `}
-`;
+`

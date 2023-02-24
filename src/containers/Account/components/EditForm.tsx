@@ -1,33 +1,33 @@
-import { FC, useState } from "react";
-import { Field, Form, Formik } from "formik";
-import * as Yup from "yup";
+import { FC, useState } from "react"
+import { Field, Form, Formik } from "formik"
+import * as Yup from "yup"
 
-import { validationSchema } from "@/utility/validationSchema";
-import AxiosAPI from "@/services/api";
-import { ApiRoutes } from "@/routes/api";
-import { AccountPages, AppPages } from "@/routes/constant";
-import { UserModel } from "@/types/user";
-import { TextArea } from "@/components/Inputs/TextArea";
-import { SystemBtn } from "@/components/common/Btn";
-import { SystemTextInput } from "@/components/Inputs/TextInput";
-import styled from "@emotion/styled";
-import { SystemText } from "@/components/common/Text";
-import { FormikInput } from "@/components/Inputs/FormikInput";
+import { validationSchema } from "@/utility/validationSchema"
+import AxiosAPI from "@/services/api"
+import { ApiRoutes } from "@/routes/api"
+import { AccountPages, AppPages } from "@/routes/constant"
+import { UserModel } from "@/types/user"
+import { TextArea } from "@/components/Inputs/TextArea"
+import { SystemBtn } from "@/components/common/Btn"
+import { SystemTextInput } from "@/components/Inputs/TextInput"
+import styled from "@emotion/styled"
+import { SystemText } from "@/components/common/Text"
+import { FormikInput } from "@/components/Inputs/FormikInput"
 
 interface Props {
-  user: UserModel;
-  cancelFn: () => void;
+  user: UserModel
+  cancelFn: () => void
 }
 
 interface FormValues {
-  name: string;
-  description: string;
-  slug: string;
+  name: string
+  description: string
+  slug: string
 }
 
 export const EditForm: FC<Props> = ({ user, cancelFn }) => {
-  const [loading, setLoading] = useState(false);
-  const domain = window.location.host;
+  const [loading, setLoading] = useState(false)
+  const domain = window.location.host
 
   const formik = {
     initialValues: {
@@ -41,19 +41,19 @@ export const EditForm: FC<Props> = ({ user, cancelFn }) => {
       slug: validationSchema.slug,
     }),
     onSubmit: (values: FormValues) => {
-      setLoading(true);
+      setLoading(true)
       AxiosAPI.patch(ApiRoutes.Profile, values)
         .then(() => {
-          window.location = `${AccountPages.Profile}` as (string & Location)
+          window.location = `${AccountPages.Profile}` as string & Location
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err)
         })
         .finally(() => {
-          setLoading(false);
-        });
+          setLoading(false)
+        })
     },
-  };
+  }
 
   return (
     <Formik
@@ -120,8 +120,8 @@ export const EditForm: FC<Props> = ({ user, cancelFn }) => {
         </StyledForm>
       )}
     </Formik>
-  );
-};
+  )
+}
 
 const StyledForm = styled(Form)`
   display: flex;
@@ -129,7 +129,7 @@ const StyledForm = styled(Form)`
   width: 100%;
   gap: 15px;
   margin-top: 25px;
-`;
+`
 
 const Domain = styled(SystemText)`
   display: flex;
@@ -147,31 +147,31 @@ const Domain = styled(SystemText)`
   ::-webkit-scrollbar {
     display: none;
   }
-`;
+`
 
 const Label = styled(SystemText)`
   color: ${(props) => props.theme.colors.gray};
   margin-bottom: 5px;
   cursor: default;
-`;
+`
 
 const FieldWrapper = styled.div`
   width: 100%;
-`;
+`
 
 const FullDomain = styled.div`
   width: 100%;
   display: flex;
   align-items: flex-start;
-`;
+`
 
 const BtnsWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-`;
+`
 
 const StyledSystemTextInput = styled(FormikInput)`
   border-radius: 0 5px 5px 0;
-`;
+`

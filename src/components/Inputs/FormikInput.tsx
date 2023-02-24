@@ -1,10 +1,10 @@
-import { FieldProps, getIn } from "formik";
-import React, { FC } from "react";
-import { SystemTextInput } from "./TextInput";
+import { FieldProps, getIn } from "formik"
+import React, { FC } from "react"
+import { SystemTextInput } from "./TextInput"
 
 export const FormikInput: FC<FieldProps> = ({ form, field, ...props }) => {
-  const touched = getIn(form.touched, field.name);
-  const errorMsg = getIn(form.errors, field.name);
+  const touched = getIn(form.touched, field.name)
+  const errorMsg = getIn(form.errors, field.name)
 
   return (
     <SystemTextInput
@@ -13,5 +13,5 @@ export const FormikInput: FC<FieldProps> = ({ form, field, ...props }) => {
       {...props}
       {...field}
     />
-  );
-};
+  )
+}

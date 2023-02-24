@@ -1,15 +1,14 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import { FC } from "react";
+import styled from "@emotion/styled"
+import { css } from "@emotion/react"
+import { FC } from "react"
 
 interface Props {
   url: string | null
 }
 
-export const Banner: FC<Props> = ({...props}) => {
-  return <Wrapper {...props} />;
-};
-
+export const Banner: FC<Props> = ({ ...props }) => {
+  return <Wrapper {...props} />
+}
 
 const Wrapper = styled.div<Props>`
   width: 100%;
@@ -24,4 +23,4 @@ const Wrapper = styled.div<Props>`
       background-position: center center;
       background-repeat: no-repeat;
     `}
-`;
+`

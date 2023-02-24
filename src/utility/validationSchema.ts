@@ -1,4 +1,4 @@
-import * as Yup from "yup";
+import * as Yup from "yup"
 
 export const validationSchema = {
   name: Yup.string().required("Обязательное поле").min(3, "Минимум 3 символа"),
@@ -9,5 +9,8 @@ export const validationSchema = {
     .required("Обязательное поле")
     .min(4, "Минимум 4 символа"),
   description: Yup.string(),
-  slug: Yup.string().required("Обязательное поле").trim().min(3, "Минимум 3 символа"),
-};
+  slug: Yup.string()
+    .required("Обязательное поле")
+    .trim()
+    .min(3, "Минимум 3 символа"),
+}

@@ -1,29 +1,29 @@
-import { Field, Form, Formik } from "formik";
-import * as Yup from "yup";
-import { useRouter } from "next/router";
+import { Field, Form, Formik } from "formik"
+import * as Yup from "yup"
+import { useRouter } from "next/router"
 
-import { AuthFormTemplate } from "@components/Forms/AuthForm";
-import { validationSchema } from "@utility/validationSchema";
-import { NameInput } from "@components/Inputs/NameInput";
-import { SystemBtn } from "@components/common/Btn";
-import { EmailInput } from "@components/Inputs/EmailInput";
-import { PasswordInput } from "@components/Inputs/PasswordInput";
-import AxiosAPI from "@/services/api";
-import { cookies } from "@/services/cookie";
-import { CookieKeys } from "@/types/cookie";
-import { ApiRoutes } from "@/routes/api";
-import { AccountPages } from "@/routes/constant";
-import { useState } from "react";
+import { AuthFormTemplate } from "@components/Forms/AuthForm"
+import { validationSchema } from "@utility/validationSchema"
+import { NameInput } from "@components/Inputs/NameInput"
+import { SystemBtn } from "@components/common/Btn"
+import { EmailInput } from "@components/Inputs/EmailInput"
+import { PasswordInput } from "@components/Inputs/PasswordInput"
+import AxiosAPI from "@/services/api"
+import { cookies } from "@/services/cookie"
+import { CookieKeys } from "@/types/cookie"
+import { ApiRoutes } from "@/routes/api"
+import { AccountPages } from "@/routes/constant"
+import { useState } from "react"
 
 interface FormValues {
-  name: string;
-  email: string;
-  password: string;
+  name: string
+  email: string
+  password: string
 }
 
 export const RegisterForm = () => {
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
 
   const formik = {
     initialValues: {
@@ -37,20 +37,20 @@ export const RegisterForm = () => {
       password: validationSchema.password,
     }),
     onSubmit: (values: FormValues) => {
-      setLoading(true);
+      setLoading(true)
       AxiosAPI.post(ApiRoutes.AuthSignUp, values)
         .then((res) => {
-          cookies.set(CookieKeys.ACCESS_TOKEN, res.data.value);
-          router.push(`${AccountPages.Profile}`);
+          cookies.set(CookieKeys.ACCESS_TOKEN, res.data.value)
+          router.push(`${AccountPages.Profile}`)
         })
         .catch((err) => {
-          window.alert(`ошибка при регистрации: ${err}`);
+          window.alert(`ошибка при регистрации: ${err}`)
         })
         .finally(() => {
-          setLoading(false);
-        });
+          setLoading(false)
+        })
     },
-  };
+  }
 
   return (
     <Formik
@@ -78,5 +78,5 @@ export const RegisterForm = () => {
         </Form>
       )}
     </Formik>
-  );
-};
+  )
+}

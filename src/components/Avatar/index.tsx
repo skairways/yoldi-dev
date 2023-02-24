@@ -1,12 +1,12 @@
-import { FC } from "react";
-import Image from "next/image";
-import styled from "@emotion/styled";
-import { variant } from "styled-system";
+import { FC } from "react"
+import Image from "next/image"
+import styled from "@emotion/styled"
+import { variant } from "styled-system"
 
 interface Props {
-  size: keyof typeof sizes;
-  url: string | null;
-  name: string | null;
+  size: keyof typeof sizes
+  url: string | null
+  name: string | null
 }
 
 export const Avatar: FC<Props> = ({ name, url, ...props }) => {
@@ -14,13 +14,13 @@ export const Avatar: FC<Props> = ({ name, url, ...props }) => {
     <Wrapper {...props}>
       {url ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={url} alt={name || 'user-img'} />
+        <img src={url} alt={name || "user-img"} />
       ) : (
         name?.charAt(0)
       )}
     </Wrapper>
-  );
-};
+  )
+}
 
 const sizes = {
   small: {
@@ -33,7 +33,7 @@ const sizes = {
     height: "100px",
     fontSize: "36px",
   },
-};
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -55,4 +55,4 @@ const Wrapper = styled.div`
     prop: "size",
     variants: sizes,
   })}
-`;
+`

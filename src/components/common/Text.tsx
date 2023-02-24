@@ -1,16 +1,19 @@
-import { FC, PropsWithChildren } from "react";
-import { variant } from "styled-system";
-import styled from "@emotion/styled";
-import { flexbox, layout, position, space, typography } from "styled-system";
-import { StyledSystemProps } from "@/styles/types";
+import { FC, PropsWithChildren } from "react"
+import { variant } from "styled-system"
+import styled from "@emotion/styled"
+import { flexbox, layout, position, space, typography } from "styled-system"
+import { StyledSystemProps } from "@/styles/types"
 
 interface TextProps extends PropsWithChildren {
-  type: keyof typeof types;
+  type: keyof typeof types
 }
 
-export const SystemText: FC<TextProps & StyledSystemProps> = ({ children, ...props }) => {
-  return <Text {...props}>{children}</Text>;
-};
+export const SystemText: FC<TextProps & StyledSystemProps> = ({
+  children,
+  ...props
+}) => {
+  return <Text {...props}>{children}</Text>
+}
 
 const types = {
   reg: {
@@ -21,7 +24,7 @@ const types = {
     fontSize: ["12px"],
     lineHeight: "19.2px",
   },
-};
+}
 
 const Text = styled.p`
   color: ${(props) => props.theme.colors.txt};
@@ -36,4 +39,4 @@ const Text = styled.p`
   ${position}
   ${space}
   ${typography}
-`;
+`

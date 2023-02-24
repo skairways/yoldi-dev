@@ -1,10 +1,9 @@
-import Head from "next/head";
+import Head from "next/head"
 
-import { SystemText } from "@/components/common/Text";
-import { SystemTitle } from "@/components/common/Title";
-import { SystemBtn } from "@/components/common/Btn";
-import { SystemTextInput } from "@/components/Inputs/TextInput";
-
+import { SystemText } from "@/components/common/Text"
+import { SystemTitle } from "@/components/common/Title"
+import { SystemBtn } from "@/components/common/Btn"
+import { SystemTextInput } from "@/components/Inputs/TextInput"
 
 export default function System() {
   return (
@@ -22,16 +21,20 @@ export default function System() {
         <SystemText type="mini">Mini paragraph</SystemText>
 
         <SystemBtn btnType="primary">Button</SystemBtn>
-        <SystemBtn btnType="primary" disabled>Button</SystemBtn>
+        <SystemBtn btnType="primary" disabled>
+          Button
+        </SystemBtn>
 
         <SystemBtn btnType="secondary">Button</SystemBtn>
-        <SystemBtn btnType="secondary" disabled>Button</SystemBtn>
+        <SystemBtn btnType="secondary" disabled>
+          Button
+        </SystemBtn>
 
         <SystemTextInput placeholder="input" />
         <SystemTextInput placeholder="input" type="password" />
-        <SystemTextInput placeholder="input" startIcon={<>@</>}/>
-        <SystemTextInput placeholder="input" disabled/>
+        <SystemTextInput placeholder="input" startIcon={<>@</>} />
+        <SystemTextInput placeholder="input" disabled />
       </main>
     </>
-  );
+  )
 }

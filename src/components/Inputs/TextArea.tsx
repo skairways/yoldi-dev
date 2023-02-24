@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
-import { FieldProps } from "formik";
-import { FC } from "react";
+import styled from "@emotion/styled"
+import { FieldProps } from "formik"
+import { FC } from "react"
 
 export const TextArea: FC<FieldProps> = ({ form, field, ...props }) => {
-  return <StyledTextArea {...props} {...field} />;
-};
+  return <StyledTextArea {...props} {...field} />
+}
 
 export const StyledTextArea = styled.textarea`
   width: 100%;
@@ -23,4 +23,4 @@ export const StyledTextArea = styled.textarea`
   &:focus-within {
     border-color: ${(props) => props.theme.colors.gray};
   }
-`;
+`

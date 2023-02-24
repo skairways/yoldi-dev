@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write ./src",
+    "check-format": "prettier --check ./src"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.5",
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@types/js-cookie": "^3.0.3",
-    "@types/styled-system": "^5.1.16"
+    "@types/styled-system": "^5.1.16",
+    "prettier": "^2.8.4"
   }
 }

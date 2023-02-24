@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from "react"
 
-import { Layer } from "@/components/common/Layer";
-import { AuthRedirectHelper } from "@/components/AuthRedirectHelper";
-import { AppPages } from "@/routes/constant";
-import { LoginForm } from "@/containers/LogIn/components/Form";
+import { Layer } from "@/components/common/Layer"
+import { AuthRedirectHelper } from "@/components/AuthRedirectHelper"
+import { AppPages } from "@/routes/constant"
+import { LoginForm } from "@/containers/LogIn/components/Form"
 
 export const LogInPage: FC = () => {
   return (
@@ -15,5 +15,5 @@ export const LogInPage: FC = () => {
         linkText="Зарегистрироваться"
       />
     </Layer>
-  );
-};
+  )
+}

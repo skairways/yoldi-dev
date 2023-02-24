@@ -20,5 +20,5 @@ export const media = (Object.keys(sizes) as Array<keyof typeof sizes>).reduce(
 
     return acc
   },
-  {} as {[key in keyof typeof sizes]: any }
+  {} as { [key in keyof typeof sizes]: any }
 )

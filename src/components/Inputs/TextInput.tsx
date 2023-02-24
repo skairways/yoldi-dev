@@ -1,18 +1,18 @@
-import { FC, HTMLAttributes, HTMLInputTypeAttribute, useState } from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import { FC, HTMLAttributes, HTMLInputTypeAttribute, useState } from "react"
+import styled from "@emotion/styled"
+import { css } from "@emotion/react"
 
-import { ReactComponent as EyeIcon } from "@assets/icons/eye.svg";
-import { ReactComponent as CrossedEyeIcon } from "@assets/icons/crossed-eye.svg";
-import { StyledSystemProps } from "@/styles/types";
-import { border } from "styled-system";
+import { ReactComponent as EyeIcon } from "@assets/icons/eye.svg"
+import { ReactComponent as CrossedEyeIcon } from "@assets/icons/crossed-eye.svg"
+import { StyledSystemProps } from "@/styles/types"
+import { border } from "styled-system"
 
 interface Props extends HTMLAttributes<HTMLInputElement> {
-  startIcon?: React.ReactNode;
-  disabled?: boolean;
-  type?: HTMLInputTypeAttribute;
-  errorMsg?: string;
-  touched?: boolean;
+  startIcon?: React.ReactNode
+  disabled?: boolean
+  type?: HTMLInputTypeAttribute
+  errorMsg?: string
+  touched?: boolean
 }
 
 export const SystemTextInput: FC<Props & StyledSystemProps> = ({
@@ -22,8 +22,8 @@ export const SystemTextInput: FC<Props & StyledSystemProps> = ({
   errorMsg,
   ...props
 }) => {
-  const [show, setShow] = useState(false);
-  const validationErr = Boolean(touched && errorMsg);
+  const [show, setShow] = useState(false)
+  const validationErr = Boolean(touched && errorMsg)
 
   return (
     <Wrapper>
@@ -45,7 +45,7 @@ export const SystemTextInput: FC<Props & StyledSystemProps> = ({
         {type === "password" && (
           <EndIcon
             onClick={() => {
-              setShow((prev) => !prev);
+              setShow((prev) => !prev)
             }}
           >
             {show === false ? <EyeIcon /> : <CrossedEyeIcon />}
@@ -54,15 +54,15 @@ export const SystemTextInput: FC<Props & StyledSystemProps> = ({
       </InputWrapper>
       {validationErr && <ErrorLabel>{errorMsg}</ErrorLabel>}
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   font-size: 12px;
-`;
+`
 
 const InputWrapper = styled.div`
   position: relative;
@@ -70,12 +70,12 @@ const InputWrapper = styled.div`
   align-items: center;
   width: 100%;
   max-width: 540px;
-`;
+`
 
 const StyledInput = styled.input<{
-  padLeft: boolean;
-  padRight: boolean;
-  validationErr?: boolean;
+  padLeft: boolean
+  padRight: boolean
+  validationErr?: boolean
 }>`
   width: 100%;
   background: ${(props) => props.theme.colors.backgroundPrimary};
@@ -107,18 +107,18 @@ const StyledInput = styled.input<{
     `}
 
   ${border}
-`;
+`
 
 const StartIcon = styled.div`
   position: absolute;
   left: 20px;
-`;
+`
 
 const EndIcon = styled.div`
   position: absolute;
   right: 20px;
-`;
+`
 
 const ErrorLabel = styled.p`
   color: ${(props) => props.theme.colors.error};
-`;
+`

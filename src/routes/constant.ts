@@ -10,4 +10,3 @@ export enum AppPages {
 export enum AccountPages {
   Profile = AppPages.Account + "/profile",
 }
-

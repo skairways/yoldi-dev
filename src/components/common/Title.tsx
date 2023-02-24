@@ -1,6 +1,6 @@
-import { StyledSystemProps } from "@/styles/types";
-import styled from "@emotion/styled";
-import { FC, PropsWithChildren } from "react";
+import { StyledSystemProps } from "@/styles/types"
+import styled from "@emotion/styled"
+import { FC, PropsWithChildren } from "react"
 import {
   variant,
   flexbox,
@@ -8,18 +8,18 @@ import {
   position,
   space,
   typography,
-} from "styled-system";
+} from "styled-system"
 
 interface TitleProps extends PropsWithChildren {
-  type: keyof typeof types;
+  type: keyof typeof types
 }
 
 export const SystemTitle: FC<TitleProps & StyledSystemProps> = ({
   children,
   ...props
 }) => {
-  return <Title {...props}>{children}</Title>;
-};
+  return <Title {...props}>{children}</Title>
+}
 
 const types = {
   reg: {
@@ -32,7 +32,7 @@ const types = {
     fontWeight: 400,
     lineHeight: "25.2px",
   },
-};
+}
 
 const Title = styled.h2`
   color: ${(props) => props.theme.colors.txt};
@@ -47,4 +47,4 @@ const Title = styled.h2`
   ${position}
   ${space}
   ${typography}
-`;
+`

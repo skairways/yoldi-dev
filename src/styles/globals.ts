@@ -1,5 +1,5 @@
-import { css } from "@emotion/react";
-import { selectedTheme } from "./theme/ThemeProvider";
+import { css } from "@emotion/react"
+import { selectedTheme } from "./theme/ThemeProvider"
 
 export const GlobalStyles = css`
   * {
@@ -20,4 +20,4 @@ export const GlobalStyles = css`
   a {
     text-decoration: none;
   }
-`;
+`

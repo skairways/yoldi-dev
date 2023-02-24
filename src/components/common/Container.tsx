@@ -1,9 +1,9 @@
-import { FC, PropsWithChildren } from "react";
-import styled from "@emotion/styled";
+import { FC, PropsWithChildren } from "react"
+import styled from "@emotion/styled"
 
 export const SystemContainer: FC<PropsWithChildren> = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
-};
+  return <Wrapper>{children}</Wrapper>
+}
 
 const Wrapper = styled.div`
   width: 100%;
@@ -11,4 +11,4 @@ const Wrapper = styled.div`
   margin: auto;
   padding-right: 15px;
   padding-left: 15px;
-`;
+`
