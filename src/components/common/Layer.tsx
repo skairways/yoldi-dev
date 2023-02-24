@@ -10,15 +10,14 @@ export const Layer: FC<PropsWithChildren & StyledSystemProps> = ({
   ...props
 }) => {
   return (
-    <Wrapper {...props}>
+    <>
       <Nav />
-      {children}
-    </Wrapper>
+      <Wrapper {...props}>{children}</Wrapper>
+    </>
   )
 }
 
 const Wrapper = styled.main`
-  padding-top: 81px;
   ${flexbox}
   ${layout}
   ${position}

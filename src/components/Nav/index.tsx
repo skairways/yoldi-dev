@@ -57,7 +57,7 @@ export const Nav: FC<Props> = () => {
 
 const Wrapper = styled.nav`
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   background-color: ${(props) => props.theme.colors.backgroundPrimary};
   border-bottom: 1px solid ${(props) => props.theme.colors.strokesSecondary};
