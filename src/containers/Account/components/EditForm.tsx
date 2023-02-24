@@ -6,7 +6,7 @@ import styled from "@emotion/styled"
 import { validationSchema } from "@/utility/validationSchema"
 import AxiosAPI from "@/services/api"
 import { ApiRoutes } from "@/routes/api"
-import { AccountPages, AppPages } from "@/routes/constant"
+import { AppPages } from "@/routes/constant"
 import { UserModel } from "@/types/user"
 import { TextArea } from "@/components/Inputs/TextArea"
 import { SystemBtn } from "@/components/common/Btn"
@@ -43,7 +43,8 @@ export const EditForm: FC<Props> = ({ user, cancelFn }) => {
       setLoading(true)
       AxiosAPI.patch(ApiRoutes.Profile, values)
         .then(() => {
-          window.location = `${AccountPages.Profile}` as string & Location
+          window.location = `${AppPages.Account}/${values.slug}` as string &
+            Location
         })
         .catch((err) => {
           console.log(err)
