@@ -1,12 +1,21 @@
 import { media } from "@/styles/media";
 import styled from "@emotion/styled";
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect } from "react";
 
 interface Props extends PropsWithChildren {
   closeFn: () => void;
 }
 
 export const Modal: FC<Props> = ({ closeFn, children }) => {
+  useEffect(() => {
+    document.body.scrollTo(0, 0);
+    document.body.style.overflowY = "hidden";
+
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
+  }, []);
+
   return (
     <Wrapper>
       <Content>{children}</Content>
@@ -29,6 +38,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   z-index: 999;
   ${media.sm`
+    justify-content: start;
     top: 81px;
   `}
 `;
@@ -45,6 +55,9 @@ const Overlay = styled.div`
   height: 100%;
   cursor: pointer;
   z-index: 998;
+  ${media.sm`
+    display: none;
+  `}
 `;
 
 const Content = styled.div`
@@ -63,8 +76,9 @@ const Content = styled.div`
   overflow-y: auto;
   z-index: 999;
   ${media.sm`
-    justify-content: start;
     border: none;
     border-radius: 0;
+    height: calc(100% - 81px);
+    justify-content: flex-start;
   `}
 `;
