@@ -28,12 +28,14 @@ const Wrapper = styled.div`
   align-items: center;
   padding-bottom: 75px;
   ${media.sm`
+    justify-content: start;
     min-height: auto;
     padding-bottom: 0;
   `}
 `
 
 const Form = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -44,9 +46,9 @@ const Form = styled.div`
   border-radius: 5px;
 
   ${media.sm`
+    max-width: 100%;
     border: 0;
-    margin: 0 auto;
     height: 100%;
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 75px);
   `}
 `
