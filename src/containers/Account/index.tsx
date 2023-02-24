@@ -1,27 +1,31 @@
 import { useRouter } from "next/router"
 import useSWR, { SWRResponse } from "swr"
-import styled from "@emotion/styled"
-import { css } from "@emotion/react"
 
 import AxiosAPI from "@/services/api"
-import { Layer } from "@/components/common/Layer"
 import { CookieKeys } from "@/types/cookie"
 import { cookies } from "@/services/cookie"
 import { AppPages } from "@/routes/constant"
 import { Avatar } from "@/components/Avatar"
 import { SystemContainer } from "@/components/common/Container"
-import { SystemBtn } from "@/components/common/Btn"
 import { SystemText } from "@/components/common/Text"
 import { ReactComponent as PenIcon } from "src/assets/icons/pen.svg"
 import { ReactComponent as SignOutIcon } from "src/assets/icons/sign-out.svg"
 import { Banner } from "./components/Banner"
-import { media } from "@/styles/media"
 import { ApiRoutes } from "@/routes/api"
 import { GridLoading } from "@/components/common/GridLoading"
-import { NameNormalizer } from "@/styles/common"
 import { useEffect, useState } from "react"
 import { EditModal } from "./components/EditModal"
-import { SystemTitle } from "@/components/common/Title"
+import {
+  Description,
+  EditBtn,
+  Email,
+  LogOutBtn,
+  Name,
+  StyledLayer,
+  UserInfo,
+  UserInfoInner,
+  Wrapper,
+} from "./style"
 
 export const AccountPage = () => {
   const router = useRouter()
@@ -77,9 +81,8 @@ export const AccountPage = () => {
             {isLoading && <GridLoading />}
             <UserInfo>
               <UserInfoInner>
-                <NameNormalizer type="reg">
-                  <SystemTitle type="reg">{user?.name}</SystemTitle>
-                </NameNormalizer>
+                <Name type="reg">{user?.name}</Name>
+
                 <Email type="reg" mt="10px">
                   {user?.email}
                 </Email>
@@ -110,55 +113,3 @@ export const AccountPage = () => {
     </>
   )
 }
-
-const StyledLayer = styled(Layer)`
-  background-color: ${(props) => props.theme.colors.backgroundPrimary};
-  min-height: calc(100vh - 82px);
-`
-
-const Wrapper = styled.div`
-  transform: translateY(-50px);
-  margin: 0 auto;
-  max-width: 800px;
-`
-
-const UserInfo = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 35px;
-  ${media.sm`
-    flex-direction: column;
-  `}
-`
-
-const UserInfoInner = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-const Email = styled(NameNormalizer)`
-  color: ${(props) => props.theme.colors.gray};
-`
-
-const Description = styled.div`
-  min-width: 600px;
-  margin-top: 30px;
-`
-
-const StyledBtn = css`
-  gap: 13px;
-  padding: 7px 22px;
-`
-
-const EditBtn = styled(SystemBtn)`
-  ${StyledBtn}
-  ${media.sm`
-    margin-top: 10px;
-  `}
-`
-
-const LogOutBtn = styled(SystemBtn)`
-  margin-top: 50px;
-  ${StyledBtn}
-`

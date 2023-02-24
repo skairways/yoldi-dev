@@ -22,15 +22,15 @@ export const AuthFormTemplate: FC<Props> = ({ title, children }) => {
 }
 
 const Wrapper = styled.div`
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 82px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 75px;
+  padding-bottom: 73px;
   ${media.sm`
     justify-content: start;
-    min-height: auto;
-    padding-bottom: 0;
+    height: auto;
   `}
 `
 
@@ -47,8 +47,7 @@ const Form = styled.div`
 
   ${media.sm`
     max-width: 100%;
+    flex-grow: 1;
     border: 0;
-    height: 100%;
-    min-height: calc(100vh - 75px);
   `}
 `
