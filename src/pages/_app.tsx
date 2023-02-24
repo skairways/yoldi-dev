@@ -19,11 +19,11 @@ export default function App({
   pageProps,
 }: MyAppProps) {
   return (
-    <CacheProvider value={emotionCache}>
-      <EmotionThemeProvider>
-        <Global styles={GlobalStyles} />
-        <Component {...pageProps} />
-      </EmotionThemeProvider>
-    </CacheProvider>
+    // <CacheProvider value={emotionCache}>
+    <EmotionThemeProvider>
+      <Global styles={GlobalStyles} />
+      <Component {...pageProps} />
+    </EmotionThemeProvider>
+    // </CacheProvider>
   )
 }
