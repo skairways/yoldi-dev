@@ -2,7 +2,7 @@ import Head from "next/head"
 
 import { RegisterPage } from "@/containers/Register"
 
-export default function Register() {
+const Register = () => {
   return (
     <>
       <Head>
@@ -16,3 +16,5 @@ export default function Register() {
     </>
   )
 }
+
+export default Register

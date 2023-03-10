@@ -1,0 +1,15 @@
+.root {
+  color: var(--txt);
+}
+
+.reg {
+  @extend .root;
+  font-size: 16px;
+  line-height: 25.5px;
+}
+
+.mini {
+  @extend .root;
+  font-size: 12px;
+  line-height: 19.2px;
+}

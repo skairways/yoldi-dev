@@ -1,58 +1,17 @@
 import { FC } from "react"
-import styled from "@emotion/styled"
-import { variant } from "styled-system"
 
-interface Props {
-  size: keyof typeof sizes
-  url: string | null
-  name: string | null
-}
+import { IAvatar } from "./types"
+import styles from "./Avatar.module.scss"
 
-export const Avatar: FC<Props> = ({ name, url, ...props }) => {
+export const Avatar: FC<IAvatar> = ({ name, url, size, ...props }) => {
   return (
-    <Wrapper {...props}>
+    <div className={styles[`root-${size}`]} {...props}>
       {url ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <StyledImg src={url} alt={name || "user-img"} />
+        <img src={url} alt={name || "user-img"} className={styles.img} />
       ) : (
         name?.charAt(0)
       )}
-    </Wrapper>
+    </div>
   )
 }
-
-const sizes = {
-  small: {
-    width: "50px",
-    height: "50px",
-    fontSize: "18px",
-  },
-  large: {
-    width: "100px",
-    height: "100px",
-    fontSize: "36px",
-  },
-}
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border-radius: 50%;
-  color: ${(props) => props.theme.colors.txt};
-  border: 1px solid ${(props) => props.theme.colors.strokesSecondary};
-  background-color: ${(props) => props.theme.colors.backgroundSecondary};
-  text-transform: capitalize;
-  overflow: hidden;
-  ${variant({
-    prop: "size",
-    variants: sizes,
-  })}
-`
-
-const StyledImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`

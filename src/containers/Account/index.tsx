@@ -1,31 +1,25 @@
 import { useRouter } from "next/router"
 import useSWR, { SWRResponse } from "swr"
+import cx from "classnames"
 
 import AxiosAPI from "@/services/api"
 import { CookieKeys } from "@/types/cookie"
 import { cookies } from "@/services/cookie"
 import { AppPages } from "@/routes/constant"
 import { Avatar } from "@/components/Avatar"
-import { SystemContainer } from "@/components/common/Container"
-import { SystemText } from "@/components/common/Text"
+import { SystemContainer } from "@/shared/ui/Container"
+import { SystemText } from "@/shared/ui/Text"
 import { ReactComponent as PenIcon } from "src/assets/icons/pen.svg"
 import { ReactComponent as SignOutIcon } from "src/assets/icons/sign-out.svg"
-import { Banner } from "./components/Banner"
+import { Banner } from "./Banner"
 import { ApiRoutes } from "@/routes/api"
-import { GridLoading } from "@/components/common/GridLoading"
+import { GridLoading } from "@/shared/ui/GridLoading"
 import { useEffect, useState } from "react"
-import { EditModal } from "./components/EditModal"
-import {
-  Description,
-  EditBtn,
-  Email,
-  LogOutBtn,
-  Name,
-  StyledLayer,
-  UserInfo,
-  UserInfoInner,
-  Wrapper,
-} from "./style"
+import { EditModal } from "./EditModal"
+import { Layer } from "@/components/Layer"
+import { SystemTitle } from "@/shared/ui/Title"
+import { SystemBtn } from "@/shared/ui/Btn"
+import styles from "./Account.module.scss"
 
 export const AccountPage = () => {
   const router = useRouter()
@@ -81,41 +75,54 @@ export const AccountPage = () => {
 
   return (
     <>
-      <StyledLayer>
+      <Layer className={styles.layer}>
         <Banner url={user?.image?.url} />
         <SystemContainer>
-          <Wrapper>
+          <div className={styles.wrapper}>
             <Avatar name={user?.name} url={user?.image?.url} size="large" />
             {isLoading && <GridLoading />}
-            <UserInfo>
-              <UserInfoInner>
-                <Name type="reg">{user?.name}</Name>
+            <div className={styles.userInfo}>
+              <div className={styles.userInfoInner}>
+                <SystemTitle className={styles.name} type="reg">
+                  {user?.name}
+                </SystemTitle>
 
-                <Email type="reg" mt="10px">
+                <SystemText
+                  className={cx(styles.email, "nameNormalizer")}
+                  type="reg" /* mt="10px" */
+                >
                   {user?.email}
-                </Email>
-              </UserInfoInner>
+                </SystemText>
+              </div>
               {owner && (
-                <EditBtn btnType="secondary" onClick={openModalFn}>
+                <SystemBtn
+                  className={styles.edit}
+                  btnType="secondary"
+                  onClick={openModalFn}
+                >
                   <PenIcon />
                   Редактировать
-                </EditBtn>
+                </SystemBtn>
               )}
-            </UserInfo>
+            </div>
             {user?.description && (
-              <Description>
+              <div className={styles.descr}>
                 <SystemText type="reg">{user?.description}</SystemText>
-              </Description>
+              </div>
             )}
             {owner && (
-              <LogOutBtn btnType="secondary" onClick={logOut}>
+              <SystemBtn
+                className={styles.logOut}
+                btnType="secondary"
+                onClick={logOut}
+              >
                 <SignOutIcon />
                 Выйти
-              </LogOutBtn>
+              </SystemBtn>
             )}
-          </Wrapper>
+          </div>
         </SystemContainer>
-      </StyledLayer>
+      </Layer>
 
       {openModal && owner && <EditModal closeFn={closeModalFn} user={user} />}
     </>

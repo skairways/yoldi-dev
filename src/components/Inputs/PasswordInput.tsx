@@ -1,5 +1,5 @@
-import { SystemTextInput } from "@components/Inputs/TextInput"
-import { ReactComponent as LockIcon } from "@assets/icons/lock.svg"
+import { SystemTextInput } from "@/components/Inputs/TextInput"
+import { ReactComponent as LockIcon } from "@/assets/icons/lock.svg"
 import { FC } from "react"
 import { FieldProps, getIn } from "formik"
 

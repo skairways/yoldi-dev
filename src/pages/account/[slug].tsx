@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { AccountPage } from "@/containers/Account"
 
-export default function Account() {
+const Account = () => {
   return (
     <>
       <Head>
@@ -15,3 +15,5 @@ export default function Account() {
     </>
   )
 }
+
+export default Account

@@ -1,11 +1,13 @@
 import Head from "next/head"
 
-import { SystemText } from "@/components/common/Text"
-import { SystemTitle } from "@/components/common/Title"
-import { SystemBtn } from "@/components/common/Btn"
+import { SystemText } from "@/shared/ui/Text"
+import { SystemTitle } from "@/shared/ui/Title"
+import { SystemBtn } from "@/shared/ui/Btn"
 import { SystemTextInput } from "@/components/Inputs/TextInput"
+import { GridLoading } from "@/shared/ui/GridLoading"
+import { SystemContainer } from "@/shared/ui/Container"
 
-export default function System() {
+const System = () => {
   return (
     <>
       <Head>
@@ -15,26 +17,32 @@ export default function System() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <SystemTitle type="reg">Title</SystemTitle>
-        <SystemTitle type="sub">SubTitle</SystemTitle>
-        <SystemText type="reg">Regular paragraph</SystemText>
-        <SystemText type="mini">Mini paragraph</SystemText>
+        <SystemContainer>
+          <SystemTitle type="reg">Title</SystemTitle>
+          <SystemTitle type="sub">SubTitle</SystemTitle>
+          <SystemText type="reg">Regular paragraph</SystemText>
+          <SystemText type="mini">Mini paragraph</SystemText>
 
-        <SystemBtn btnType="primary">Button</SystemBtn>
-        <SystemBtn btnType="primary" disabled>
-          Button
-        </SystemBtn>
+          <SystemBtn btnType="primary">Button</SystemBtn>
+          <SystemBtn btnType="primary" disabled>
+            Button
+          </SystemBtn>
 
-        <SystemBtn btnType="secondary">Button</SystemBtn>
-        <SystemBtn btnType="secondary" disabled>
-          Button
-        </SystemBtn>
+          <SystemBtn btnType="secondary">Button</SystemBtn>
+          <SystemBtn btnType="secondary" disabled>
+            Button
+          </SystemBtn>
 
-        <SystemTextInput placeholder="input" />
-        <SystemTextInput placeholder="input" type="password" />
-        <SystemTextInput placeholder="input" startIcon={<>@</>} />
-        <SystemTextInput placeholder="input" disabled />
+          <SystemTextInput placeholder="input" />
+          <SystemTextInput placeholder="input" type="password" />
+          <SystemTextInput placeholder="input" startIcon={<>@</>} />
+          <SystemTextInput placeholder="input" disabled />
+
+          <GridLoading isFullPageHeight />
+        </SystemContainer>
       </main>
     </>
   )
 }
+
+export default System

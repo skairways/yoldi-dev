@@ -1,9 +1,9 @@
 import { FC } from "react"
 
-import { Layer } from "@/components/common/Layer"
-import { AuthRedirectHelper } from "@/components/AuthRedirectHelper"
+import { Layer } from "@/components/Layer"
+import { AuthRedirectHelper } from "@/components/AuthRedirect"
 import { AppPages } from "@/routes/constant"
-import { LoginForm } from "@/containers/LogIn/components/Form"
+import { LoginForm } from "@/containers/LogIn/LoginForm"
 
 export const LogInPage: FC = () => {
   return (

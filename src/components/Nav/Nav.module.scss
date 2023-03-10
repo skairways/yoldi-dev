@@ -1,0 +1,37 @@
+.nav {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: var(--backgroundPrimary);
+  border-bottom: var(--strokesSecondary);
+  z-index: 100;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 29.5px 15px 20px;
+  max-width: 1280px;
+  margin: auto;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.text {
+  max-width: 225px;
+
+  /*  ${media.sm`
+    display: none;
+  `} */
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

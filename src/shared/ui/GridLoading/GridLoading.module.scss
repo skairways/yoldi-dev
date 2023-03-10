@@ -1,0 +1,92 @@
+// 100 ${({ fullPageHeight }) => (fullPageHeight ? "vh" : "%")} - 76px
+
+.root {
+  position: static;
+  z-index: 99;
+  height: calc(100% - 76px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: fadeIn 1s;
+
+  &.pageHeight {
+    height: calc(100vh - 76px);
+  }
+
+  &.contained {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    left: calc(50% - 30px);
+  }
+
+  .ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+
+  .ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+
+    background: var(--txt);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+
+  .first {
+    left: 8px;
+    animation: ellipsis1 0.6s infinite;
+  }
+
+  .second {
+    left: 8px;
+    animation: ellipsis2 0.6s infinite;
+  }
+
+  .third {
+    left: 32px;
+    animation: ellipsis2 0.6s infinite;
+  }
+
+  .fourth {
+    left: 56px;
+    animation: ellipsis3 0.6s infinite;
+  }
+
+  @keyframes ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(0);
+    }
+  }
+
+  @keyframes ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+}
