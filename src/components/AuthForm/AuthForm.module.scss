@@ -1,3 +1,5 @@
+@import "@styles/media";
+
 .root {
   min-height: calc(100vh - 82px);
   display: flex;
@@ -5,10 +7,10 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 73px;
-  /* ${media.sm`
+  @include sm {
     justify-content: start;
     height: auto;
-  `} */
+  }
 }
 
 .wrapper {
@@ -26,9 +28,10 @@
     margin-bottom: 10px;
   }
 
-  /* ${media.sm`
+  @include sm {
+    justify-content: start;
     max-width: 100%;
     flex-grow: 1;
     border: 0;
-  `} */
+  }
 }

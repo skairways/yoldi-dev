@@ -88,7 +88,7 @@ export const AccountPage = () => {
                 </SystemTitle>
 
                 <SystemText
-                  className={cx(styles.email, "nameNormalizer")}
+                  className={cx(styles.email, "textNormalizer")}
                   type="reg" /* mt="10px" */
                 >
                   {user?.email}

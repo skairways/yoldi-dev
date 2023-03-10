@@ -1,3 +1,5 @@
+@import "@styles/media";
+
 .root {
   width: 100%;
   display: flex;
@@ -15,26 +17,26 @@
   flex-wrap: wrap;
   width: 100%;
   overflow: hidden;
-  // ${media.sm`
-  //   flex-direction: column;
-  //   align-items: flex-start;
-  // `}
+  @include md {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
-%base {
+@mixin baseField {
   max-width: 45%;
-  /*  ${media.md`
+  @include md {
     max-width: 100%;
-  `} */
+  }
 }
 
 .name {
-  @extend %base;
+  @include baseField();
   text-transform: capitalize;
   font-weight: 500;
 }
 
 .email {
-  @extend %base;
+  @include baseField();
   color: var(--gray);
 }

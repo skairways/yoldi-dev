@@ -5,7 +5,7 @@ import styles from "./Avatar.module.scss"
 
 export const Avatar: FC<IAvatar> = ({ name, url, size, ...props }) => {
   return (
-    <div className={styles[`root-${size}`]} {...props}>
+    <div className={styles[size]} {...props}>
       {url ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={url} alt={name || "user-img"} className={styles.img} />

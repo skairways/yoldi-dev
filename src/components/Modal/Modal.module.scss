@@ -1,3 +1,5 @@
+@import "@styles/media";
+
 .root {
   position: fixed;
   top: 0;
@@ -11,10 +13,11 @@
   justify-content: center;
   flex-direction: column;
   z-index: 999;
-  // ${media.sm`
-  //   justify-content: start;
-  //   top: 81px;
-  // `}
+
+  @include sm {
+    justify-content: start;
+    top: 81px;
+  }
 }
 
 .overlay {
@@ -29,9 +32,10 @@
   height: 100%;
   cursor: pointer;
   z-index: 998;
-  // ${media.sm`
-  //   display: none;
-  // `}
+
+  @include sm {
+    display: none;
+  }
 }
 
 .content {
@@ -49,10 +53,11 @@
   align-items: center;
   overflow-y: auto;
   z-index: 999;
-  // ${media.sm`
-  //   border: none;
-  //   border-radius: 0;
-  //   height: calc(100% - 81px);
-  //   justify-content: flex-start;
-  // `}
+
+  @include sm {
+    border: none;
+    border-radius: 0;
+    height: calc(100% - 81px);
+    justify-content: flex-start;
+  }
 }
