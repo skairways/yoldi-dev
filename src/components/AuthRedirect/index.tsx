@@ -3,7 +3,7 @@ import Link from "next/link"
 
 import { SystemText } from "@/shared/ui/Text"
 import { IAuthRedirect } from "./types"
-import styles from "./auth.module.scss"
+import styles from "./AuthRedirect.module.scss"
 
 export const AuthRedirectHelper: FC<IAuthRedirect> = ({
   text,
