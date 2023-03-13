@@ -19,6 +19,6 @@
       "@/*": ["./src/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/styles/common.scss", "src/containers/Account/Account.module.scss"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/styles/common.scss", "src/views/Account/Account.module.scss"],
   "exclude": ["node_modules"]
 }

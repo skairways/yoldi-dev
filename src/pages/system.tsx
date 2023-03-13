@@ -3,7 +3,7 @@ import Head from "next/head"
 import { SystemText } from "@/shared/ui/Text"
 import { SystemTitle } from "@/shared/ui/Title"
 import { SystemBtn } from "@/shared/ui/Btn"
-import { SystemTextInput } from "@/components/Inputs/TextInput"
+import { SystemTextInput } from "@/shared/ui/Inputs/TextInput"
 import { GridLoading } from "@/shared/ui/GridLoading"
 import { SystemContainer } from "@/shared/ui/Container"
 

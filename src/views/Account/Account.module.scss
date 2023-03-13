@@ -1,0 +1,63 @@
+@import "@styles/media";
+@import "@styles/vars";
+
+.layer {
+  background-color: var(--backgroundPrimary);
+  min-height: calc(100vh - $nav);
+}
+
+.wrapper {
+  max-width: 800px;
+  width: 100%;
+  transform: translateY(-50px);
+  margin: 0 auto;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 35px;
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+.infoInner {
+  display: flex;
+  flex-direction: column;
+}
+
+.email {
+  color: var(--gray);
+}
+
+.descr {
+  min-width: 600px;
+  margin-top: 30px;
+}
+
+@mixin baseBtn {
+  gap: 13px;
+  padding: 7px 22px;
+}
+
+.edit {
+  @include baseBtn();
+  @include sm {
+    margin-top: 10px;
+  }
+}
+
+.logOut {
+  @include baseBtn();
+  margin-top: 50px;
+}
+
+.name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 250px;
+  position: relative;
+}

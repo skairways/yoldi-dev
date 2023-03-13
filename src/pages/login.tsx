@@ -1,4 +1,4 @@
-import { LogInPage } from "@/containers/LogIn"
+import { LogInPage } from "@/views/LogIn"
 import Head from "next/head"
 
 const Login = () => {

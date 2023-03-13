@@ -10,9 +10,10 @@ export const SystemBtn: FC<ISystemBtn & PropsWithChildren> = ({
   children,
   btnType,
   className,
+  ...props
 }) => {
   return (
-    <button className={cx(styles[`${btnType}`], className)}>
+    <button className={cx(styles[`${btnType}`], className)} {...props}>
       {loading ? loadingLabel : children}
     </button>
   )

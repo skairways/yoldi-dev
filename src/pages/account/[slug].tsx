@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { AccountPage } from "@/containers/Account"
+import { AccountPage } from "@/views/Account"
 
 const Account = () => {
   return (
