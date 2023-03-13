@@ -1,3 +1,3 @@
-export interface ITextArea {
-  className?: string
-}
+import { HTMLAttributes } from "react"
+
+export interface ITextArea extends HTMLAttributes<HTMLTextAreaElement> {}

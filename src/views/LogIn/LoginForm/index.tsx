@@ -6,14 +6,15 @@ import { useState } from "react"
 import { AuthFormTemplate } from "@/shared/ui/AuthForm"
 import { validationSchema } from "@/shared/utils/validationSchema"
 import { SystemBtn } from "@/shared/ui/Btn"
-import { EmailInput } from "@/shared/ui/Inputs/EmailInput"
-import { PasswordInput } from "@/shared/ui/Inputs/PasswordInput"
 import AxiosAPI from "@/shared/services/api"
 import { ApiRoutes } from "@/shared/routes/api"
 import { cookies } from "@/shared/services/cookie"
 import { CookieKeys } from "@/shared/types/cookie"
 import { AccountPages } from "@/shared/routes/paths"
 import { FormValues } from "./types"
+import { ReactComponent as MailIcon } from "@/assets/icons/mail.svg"
+import { FormikInput } from "@/shared/ui/FormikInputs/Text"
+import { ReactComponent as LockIcon } from "@/assets/icons/lock.svg"
 
 export const LoginForm = () => {
   const router = useRouter()
@@ -53,8 +54,20 @@ export const LoginForm = () => {
       {({ isValid, dirty }) => (
         <Form>
           <AuthFormTemplate title="Вход в Yoldi Agency">
-            <Field name="email" type="email" component={EmailInput} />
-            <Field name="password" type="password" component={PasswordInput} />
+            <Field
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              startIcon={<MailIcon />}
+              component={FormikInput}
+            />
+            <Field
+              name="password"
+              type="password"
+              placeholder="Пароль"
+              startIcon={<LockIcon />}
+              component={FormikInput}
+            />
             <SystemBtn
               btnType="primary"
               disabled={!dirty || !isValid}

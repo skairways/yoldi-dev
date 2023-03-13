@@ -17,25 +17,27 @@ export const SystemTextInput: FC<ISystemTextInput> = ({
   const [show, setShow] = useState(false)
   const validationErr = Boolean(touched && errorMsg)
 
+  let curType = type
+  if (type === "password" && !show) {
+    curType = "password"
+  } else {
+    curType = "text"
+  }
+
+  const args = {
+    className: cx(styles.input, className, {
+      [`${styles.pl}`]: !!startIcon,
+      [`${styles.pr}`]: type === "password",
+      [`${styles.validationErr}`]: validationErr,
+    }),
+    type: curType,
+  }
+
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
         {!!startIcon && <div className={styles.startIcon}>{startIcon}</div>}
-        <input
-          className={cx(styles.input, className, {
-            [`${styles.pl}`]: !!startIcon,
-            [`${styles.pr}`]: type === "password",
-            [`${styles.validationErr}`]: validationErr,
-          })}
-          type={
-            type === "password" && !show
-              ? "password"
-              : type !== "password"
-              ? type
-              : "text"
-          }
-          {...props}
-        />
+        <input {...args} {...props} />
         {type === "password" && (
           <div
             className={styles.endIcon}

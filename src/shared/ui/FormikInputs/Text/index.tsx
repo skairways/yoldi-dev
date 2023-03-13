@@ -1,7 +1,7 @@
 import { FieldProps, getIn } from "formik"
 import React, { FC } from "react"
 
-import { SystemTextInput } from "./TextInput"
+import { SystemTextInput } from "@/shared/ui/Inputs/Text"
 
 export const FormikInput: FC<FieldProps> = ({ form, field, ...props }) => {
   const touched = getIn(form.touched, field.name)

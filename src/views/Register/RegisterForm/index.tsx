@@ -4,10 +4,7 @@ import { useRouter } from "next/router"
 
 import { AuthFormTemplate } from "@/shared/ui/AuthForm"
 import { validationSchema } from "@/shared/utils/validationSchema"
-import { NameInput } from "@/shared/ui/Inputs/NameInput"
 import { SystemBtn } from "@/shared/ui/Btn"
-import { EmailInput } from "@/shared/ui/Inputs/EmailInput"
-import { PasswordInput } from "@/shared/ui/Inputs/PasswordInput"
 import AxiosAPI from "@/shared/services/api"
 import { cookies } from "@/shared/services/cookie"
 import { CookieKeys } from "@/shared/types/cookie"
@@ -15,6 +12,10 @@ import { ApiRoutes } from "@/shared/routes/api"
 import { AccountPages } from "@/shared/routes/paths"
 import { useState } from "react"
 import { FormValues } from "./types"
+import { FormikInput } from "@/shared/ui/FormikInputs/Text"
+import { ReactComponent as UserIcon } from "@/assets/icons/user.svg"
+import { ReactComponent as MailIcon } from "@/assets/icons/mail.svg"
+import { ReactComponent as LockIcon } from "@/assets/icons/lock.svg"
 
 export const RegisterForm = () => {
   const router = useRouter()
@@ -56,9 +57,27 @@ export const RegisterForm = () => {
       {({ isValid, dirty }) => (
         <Form>
           <AuthFormTemplate title="Регистрация в Yoldi Agency">
-            <Field name="name" type="text" component={NameInput} />
-            <Field name="email" type="email" component={EmailInput} />
-            <Field name="password" type="password" component={PasswordInput} />
+            <Field
+              name="name"
+              type="text"
+              placeholder="Имя"
+              startIcon={<UserIcon />}
+              component={FormikInput}
+            />
+            <Field
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              startIcon={<MailIcon />}
+              component={FormikInput}
+            />
+            <Field
+              name="password"
+              type="password"
+              placeholder="Пароль"
+              startIcon={<LockIcon />}
+              component={FormikInput}
+            />
             <SystemBtn
               btnType="primary"
               disabled={!dirty || !isValid}

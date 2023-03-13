@@ -6,10 +6,10 @@ import { validationSchema } from "@/shared/utils/validationSchema"
 import AxiosAPI from "@/shared/services/api"
 import { ApiRoutes } from "@/shared/routes/api"
 import { AppPages } from "@/shared/routes/paths"
-import { TextArea } from "@/shared/ui/Inputs/TextArea"
+import { FormikTextArea } from "@/shared/ui/FormikInputs/TextArea"
 import { SystemBtn } from "@/shared/ui/Btn"
 import { SystemText } from "@/shared/ui/Text"
-import { FormikInput } from "@/shared/ui/Inputs/FormikInput"
+import { FormikInput } from "@/shared/ui/FormikInputs/Text"
 import { FormValues, IEditForm } from "./types"
 import styles from "./EditForm.module.scss"
 
@@ -85,7 +85,7 @@ export const EditForm: FC<IEditForm> = ({ user, cancelFn }) => {
               Описание
             </SystemText>
             <Field
-              component={TextArea}
+              component={FormikTextArea}
               name="description"
               placeholder="Ваша информация..."
               rows="5"
