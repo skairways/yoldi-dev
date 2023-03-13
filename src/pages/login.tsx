@@ -1,7 +1,7 @@
-import { LogInPage } from "@/containers/LogIn"
+import { LogInPage } from "@/views/LogIn"
 import Head from "next/head"
 
-export default function Login() {
+const Login = () => {
   return (
     <>
       <Head>
@@ -15,3 +15,5 @@ export default function Login() {
     </>
   )
 }
+
+export default Login

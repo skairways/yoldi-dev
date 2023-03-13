@@ -1,0 +1,45 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 25.6px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.primary {
+  @extend .root;
+  background-color: var(--txt);
+  color: var(--backgroundPrimary);
+  border-color: var(--txt);
+  padding: 12px 33px;
+
+  &:focus {
+    border-color: var(--gray);
+  }
+
+  &:disabled {
+    border-color: var(--strokesPrimary);
+    background-color: var(--strokesSecondary);
+  }
+}
+
+.secondary {
+  @extend .root;
+  background-color: var(--backgroundPrimary);
+  color: var(--txt);
+  border-color: var(--strokesPrimary);
+  padding: 7px 33px;
+
+  &:hover {
+    border-color: var(--gray);
+  }
+
+  &:focus {
+    border-color: var(--gray);
+  }
+}

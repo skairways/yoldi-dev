@@ -1,41 +1,25 @@
-# Deployement
- - staging: http://staging.bictory.art/
- - production: https://bictory.art/
-
 # Tech Stack
 
- - Next
- - SWR
- - Axios
- - Emotion
- - Formik, Yup
- - Typescript
- 
+- Next
+- Typescript
+- SWR
+- Axios
+- Scss
+- Formik
+- Yup
 
 **Linting**
 
- - ESLintPrettierStylelint
+- Next ESLint & Prettier
 
-## **Code/Folder Structure**
+Run "yarn check-all" command before commiting, this ensures your code is suitable for this project requirements
 
-    /src
+# Code/Folder Structure
 
-all codes will be in `/src` folder
-this is where the core of our application will live and grow
+[Future Sliced Design](https://feature-sliced.design/)
 
- 1. pages
- containing all the global pages required in Next
- 
- 2. containers
- containing major parts, mainly pages, each page of app will be isolated in a container
+# Data Fetching
 
- 3. components
- containing all the global components (they will be in root of `/src/components` ) and common components shared with some containers
-
-# Media queries
-
-    import { media } from 'styles/media';
-    
-     const SomeDiv = styled.div`
-      display: flex; .... ${media.medium` display: block `}; 
-    `;
+Axios is used as a default fetcher. 
+Impelement data-fetching with [SWR](https://swr.vercel.app/) until SEO is not required. Otherwise use Next js built-in API.
+JWT is stored inside cookies, use AxiosApi class to fetch protected data as it automatically places token on each request.

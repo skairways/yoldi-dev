@@ -1,0 +1,63 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.domain {
+  display: flex;
+  flex-shrink: 0;
+  width: max-content;
+  background: var(--backgroundSecondary);
+  color: var(--gray);
+  border: 1px solid var(--strokesPrimary);
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+  padding: 12px 20px;
+  line-height: 25.6px;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.label {
+  color: var(--gray);
+  margin-bottom: 5px;
+  cursor: default;
+}
+
+.fieldWrapper {
+  width: 100%;
+}
+
+.fullDomain {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.btnsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.address {
+  border-radius: 0 5px 5px 0;
+}
+
+.cancel {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.load {
+  width: 100%;
+}

@@ -1,0 +1,42 @@
+@import "@styles/media";
+
+.root {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--strokesSecondary);
+  padding: 10px;
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  @include md {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@mixin baseField {
+  max-width: 45%;
+  @include md {
+    max-width: 100%;
+  }
+}
+
+.name {
+  @include baseField();
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.email {
+  @include baseField();
+  color: var(--gray);
+}

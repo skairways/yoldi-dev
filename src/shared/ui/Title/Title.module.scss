@@ -1,0 +1,17 @@
+@mixin baseTitle {
+  color: var(--txt);
+}
+
+.reg {
+  @include baseTitle();
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 42px;
+}
+
+.sub {
+  @include baseTitle();
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25.2px;
+}

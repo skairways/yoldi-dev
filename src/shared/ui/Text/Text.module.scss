@@ -1,0 +1,15 @@
+@mixin baseText {
+  color: var(--txt);
+}
+
+.reg {
+  @include baseText();
+  font-size: 16px;
+  line-height: 25.5px;
+}
+
+.mini {
+  @include baseText();
+  font-size: 12px;
+  line-height: 19.2px;
+}

@@ -1,0 +1,20 @@
+.textarea {
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  line-height: 25.6px;
+  padding: 12px 20px;
+  resize: none;
+  background: var(--backgroundPrimary);
+  border: 1px solid var(--strokesSecondary);
+  border-radius: 5px;
+  color: var(--txt);
+
+  &::placeholder {
+    color: var(--gray);
+  }
+
+  &:focus-within {
+    border-color: var(--gray);
+  }
+}

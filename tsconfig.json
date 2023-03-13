@@ -17,13 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@utility/*": ["./src/utility/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@containers/*": ["./src/containers/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/styles/common.scss", "src/views/Account/Account.module.scss"],
   "exclude": ["node_modules"]
 }

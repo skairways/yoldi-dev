@@ -1,14 +1,9 @@
 import type { AppProps } from "next/app"
-import { Global } from "@emotion/react"
 
-import { ThemeProvider as EmotionThemeProvider } from "@/styles/theme/ThemeProvider"
-import { GlobalStyles } from "@/styles/globals"
+import "@/styles/index.scss"
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <EmotionThemeProvider>
-      <Global styles={GlobalStyles} />
-      <Component {...pageProps} />
-    </EmotionThemeProvider>
-  )
+const App = ({ Component, pageProps }: AppProps) => {
+  return <Component {...pageProps} />
 }
+
+export default App
