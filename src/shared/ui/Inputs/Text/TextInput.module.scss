@@ -53,6 +53,17 @@
     font-size: 16px;
     line-height: 25.6px;
   }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    font-size: 16px !important;
+    -webkit-box-shadow: 0 0 0 30px var(--backgroundPrimary) inset;
+    -webkit-text-fill-color: var(--txt);
+  }
+  &:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0 30px var(--backgroundPrimary) inset;
+  }
 }
 
 .startIcon {
