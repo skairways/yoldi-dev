@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import cx from "classnames"
 
 import styles from "./TextInput.module.scss"
@@ -15,14 +15,8 @@ export const SystemTextInput: FC<ISystemTextInput> = ({
   ...props
 }) => {
   const [show, setShow] = useState(false)
+  const [curType, setCurType] = useState(type)
   const validationErr = Boolean(touched && errorMsg)
-
-  let curType = type
-  if (type === "password" && !show) {
-    curType = "password"
-  } else {
-    curType = "text"
-  }
 
   const args = {
     className: cx(styles.input, className, {
@@ -33,20 +27,30 @@ export const SystemTextInput: FC<ISystemTextInput> = ({
     type: curType,
   }
 
+  useEffect(() => {
+    if (type === "password" && !show) {
+      setCurType("password")
+    } else if (type !== "password") {
+      setCurType(type)
+    } else {
+      setCurType("text")
+    }
+  }, [type, show])
+
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
         {!!startIcon && <div className={styles.startIcon}>{startIcon}</div>}
         <input {...args} {...props} />
         {type === "password" && (
-          <div
+          <button
             className={styles.endIcon}
             onClick={() => {
               setShow((prev) => !prev)
             }}
           >
             {show === false ? <EyeIcon /> : <CrossedEyeIcon />}
-          </div>
+          </button>
         )}
       </div>
       {validationErr && <p className={styles.errorLabel}>{errorMsg}</p>}
