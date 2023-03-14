@@ -5,6 +5,7 @@ import styles from "./TextInput.module.scss"
 import { ReactComponent as EyeIcon } from "@/assets/icons/eye.svg"
 import { ReactComponent as CrossedEyeIcon } from "@/assets/icons/crossed-eye.svg"
 import { ISystemTextInput } from "./types"
+import { useFocus } from "@/shared/hooks/useFocus"
 
 export const SystemTextInput: FC<ISystemTextInput> = ({
   startIcon,
@@ -16,6 +17,8 @@ export const SystemTextInput: FC<ISystemTextInput> = ({
 }) => {
   const [show, setShow] = useState(false)
   const [curType, setCurType] = useState(type)
+  const [inputRef, setInputFocus] = useFocus()
+
   const validationErr = Boolean(touched && errorMsg)
 
   const args = {
@@ -38,16 +41,17 @@ export const SystemTextInput: FC<ISystemTextInput> = ({
   }, [type, show])
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} onClick={setInputFocus}>
       <div className={styles.wrapper}>
         {!!startIcon && <div className={styles.startIcon}>{startIcon}</div>}
-        <input {...args} {...props} />
+        <input ref={inputRef} {...args} {...props} />
         {type === "password" && (
           <button
             className={styles.endIcon}
             onClick={() => {
               setShow((prev) => !prev)
             }}
+            type="button"
           >
             {show === false ? <EyeIcon /> : <CrossedEyeIcon />}
           </button>
